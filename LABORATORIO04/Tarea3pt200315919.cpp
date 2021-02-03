@@ -82,8 +82,8 @@ bool DLList::deletePrevNode(int ref) { // Borra el nodo anterior al valor
             return false;
         }
         else {
-            if (p->prev) p->prev->next = p->next; // El nodo anterior apunta al nodo despues de p
-            if (p->prev == pHead) pHead = p->next;
+            if (p == pHead) pHead = p->next; // Si p es el 1er nodo, se mueve el inicio de la lista al 2do nodo
+            if (p->prev) p->prev->next = p->next; // Si hay un valor antes del nodo p (esto se usa si p es el 1er nodo), el nodo anterior apunta al nodo despues de p
             p->next->prev = p->prev; // El nodo siguiente apunta al nodo antes de p
             d = p; // d es igual a p 
             p = p->next; // p es igual al siguiente nodo
